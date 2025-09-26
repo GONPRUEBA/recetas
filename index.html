@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetillas</title>
+</head>
+
+<body>
+    <header>
+        <h1>RECETAS GUAPAS</h1>
+    </header>
+
+    <main>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus voluptatibus rem saepe hic facilis at nihil officia necessitatibus. Illo laborum veniam fugit, quaerat delectus voluptates consequuntur amet quibusdam nemo fuga?</p>
+        <p>Illo veniam, earum aliquid perspiciatis error voluptatibus, nulla sequi autem harum officiis necessitatibus illum voluptatum facere excepturi voluptas, ad odit! Veniam necessitatibus eos odio impedit vel inventore ipsum magni facere.</p>
+        <p>Repudiandae, omnis! Non minima blanditiis inventore eligendi iste, hic facilis ratione. Minus reprehenderit praesentium culpa vero dolorum repudiandae temporibus. Dicta obcaecati provident eius quae fugiat veritatis libero possimus tempore cum?</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam aliquam reiciendis consequuntur beatae quidem debitis, ipsa natus unde. Aperiam esse pariatur praesentium debitis reiciendis quos, facilis doloribus cupiditate qui. Vel?</p>
+        <p>Magnam amet repudiandae voluptates odio a nesciunt ipsa facilis explicabo quisquam libero. Debitis labore quae eius deserunt veniam iusto consequuntur dicta numquam, incidunt, necessitatibus deleniti accusamus ea nemo eaque? Nesciunt.</p>
+        <p>Quidem voluptates animi labore similique omnis delectus sit consequatur, totam non recusandae et corrupti magnam exercitationem dolores suscipit, tempore quia? Dolore corrupti minus suscipit quaerat ea quia consequuntur dicta numquam.</p>
+
+        <label for="">Elige color</label>
+            <input type="color">
+
+    </main>
+    
+    <footer>
+        <p>-------------------------------------------------------------</p>
+        <p>L-V</p>
+        <p>9:00-21:00</p>
+        <p>S y D</p>
+        <p>CERRADO</p>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-------------------------------------------------------------------------------------------------------->
+    <!-- BOTÓN DEL MENÚ -->
+    <button class="openbtn" onclick="openNav()">☰ MENÚ</button>  
+
+    <!-- BOTÓN DE CAMBIO DE TEMA -->
+    <button id="themeToggle">☀️ Claro</button>
+
+    <!-- MENÚ DESPLEGABLE -->
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="./index.html">INICIO</a> 
+        <a href="./recetas.html">RECETAS</a>
+        <a href="./nosotros.html">NOSOTROS</a>
+        <a href="./contacto.html">CONTACTO</a>
+    </div>
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+    <script>
+        // Funciones del menú
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "200px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+
+        // Funcionalidad del botón de tema
+        const root = document.documentElement;
+        const btn = document.getElementById('themeToggle');
+        const LS_KEY = 'theme-preference';
+
+        // Función para aplicar el tema
+        function applyTheme(t) {
+            if (t === 'dark') {
+                root.setAttribute('data-theme', 'dark');
+                btn.textContent = '☀️ Claro';
+            } else {
+                root.setAttribute('data-theme', 'light');
+                btn.textContent = '🌙 Oscuro';
+            }
+        }
+
+        // Cargar tema guardado o usar claro por defecto
+        const saved = localStorage.getItem(LS_KEY);
+        applyTheme(saved || 'light');
+
+        // Cambiar tema al hacer clic
+        btn.addEventListener('click', () => {
+            const current = localStorage.getItem(LS_KEY);
+            if (current === 'dark') {
+                localStorage.setItem(LS_KEY, 'light');
+                applyTheme('light');
+            } else {
+                localStorage.setItem(LS_KEY, 'dark');
+                applyTheme('dark');
+            }
+        });
+
+    </script>
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+    <style>
+        /* VARIABLES PARA LOS TEMAS CLARO Y OSCURO */
+        :root {
+            --bg: #ffffff;
+            --text: #111;
+            --header-bg: #b8b8b9;
+            --footer-bg: #b8b8b9;
+            --menu-bg: #b8b8b9;
+            --menu-text: #000;
+            --menu-hover: #f1f1f1;
+            --button-bg: #b8b8b9;
+            --button-text: #000;
+            --button-hover: #444;
+            --mark-bg: #ffff00;
+            --mark-text: #000;
+            --borde: 1px solid rgb(0, 0, 0);
+
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #0f1113;
+            --text: #e6eef6;
+            --header-bg: #1a1d21;
+            --footer-bg: #1a1d21;
+            --menu-bg: #1a1d21;
+            --menu-text: #e6eef6;
+            --menu-hover: #e6eef6;
+            --button-bg: #2d3136;
+            --button-text: #e6eef6;
+            --button-hover: #3d4248;
+            --mark-bg: #3d4248;
+            --mark-text: #e6eef6;
+            --borde: 1px solid rgb(255, 255, 255);
+        }
+
+        /* FUENTE PRINCIPAL PARA TODO EL DOCUMENTO */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* ESTILOS DEL MENÚ DESPLEGABLE - MISMA FUENTE QUE EL RESTO */
+        .sidepanel {
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            height: 250px;
+            top: 0;
+            left: 0;
+            background-color: var(--menu-bg);
+            overflow-x: hidden;
+            transition: 0.2s;
+            padding-top: 60px;
+            font-family: Arial, sans-serif; /* MISMA FUENTE */
+        }
+
+        .sidepanel a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px; /* Tamaño consistente */
+            color: var(--menu-text);
+            display: block;
+            transition: 0.3s;
+            font-family: Arial, sans-serif; /* MISMA FUENTE */
+        }
+
+        .sidepanel a:hover {
+            color: var(--menu-hover);
+        }
+
+        .sidepanel .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            font-family: Arial, sans-serif; /* MISMA FUENTE */
+        }
+
+        .openbtn {
+            font-size: 16px;
+            cursor: pointer;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            padding: 10px 20px;
+            border: none;
+            font-family: Arial, sans-serif; /* MISMA FUENTE */
+            border-radius: 20px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .openbtn:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* ESTILOS DEL CONTENIDO PRINCIPAL */
+        header {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            background-color: var(--header-bg);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: var(--footer-bg);
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        h1, h2, p {
+            font-family: Arial, sans-serif; /* MISMA FUENTE PARA TODO */
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        mark {
+            background-color: var(--mark-bg);
+            color: var(--mark-text);
+        }
+
+        /* Botón de cambio de tema */
+        #themeToggle{
+            position: fixed;   /* siempre flotante */
+            top: 1rem;        /* distancia desde arriba */
+            right: 1rem;      /* distancia desde la derecha */
+            cursor: pointer;
+            padding: .6rem 1rem;
+            border-radius: 8px;
+            border:var(--borde);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            z-index: 9999;
+            transition: background 0.3s, color 0.3s;
+        }
+    </style>
+<!-------------------------------------------------------------------------------------------------------->
+</body>
+</html>
