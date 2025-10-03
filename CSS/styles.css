@@ -77,6 +77,7 @@ body {
     right: 25px;
     font-size: 36px;
     font-family: Arial, sans-serif; /* MISMA FUENTE */
+    cursor:crosshair;
 }
 
 .openbtn {
