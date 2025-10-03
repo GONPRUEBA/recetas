@@ -54,6 +54,7 @@ body {
     transition: 0.2s;
     padding-top: 60px;
     font-family: Arial, sans-serif; /* MISMA FUENTE */
+    border-radius: 10px;
 }
 
 .sidepanel a {
@@ -86,7 +87,7 @@ body {
     padding: 10px 20px;
     border: none;
     font-family: Arial, sans-serif; /* MISMA FUENTE */
-    border-radius: 20px;
+    border-radius: 10px;
     position: absolute;
     top: 10px;
     left: 10px;
@@ -139,11 +140,11 @@ mark {
 /* Botón de cambio de tema */
 #themeToggle{
     position: fixed;   /* siempre flotante */
-    top: 1rem;        /* distancia desde arriba */
+    top: 10px;        /* distancia desde arriba */
     right: 1rem;      /* distancia desde la derecha */
     cursor: pointer;
-    padding: .6rem 1rem;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
     border:var(--borde);
     background: var(--bg);
     color: var(--text);
